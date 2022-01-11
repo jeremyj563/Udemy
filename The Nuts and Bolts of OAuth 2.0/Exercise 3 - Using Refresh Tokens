@@ -1,0 +1,20 @@
+https://dev-16630726.okta.com/oauth2/default/v1/authorize?
+    response_type=code&
+    scope=offline_access+photos&
+    client_id=0oa3jyzq3yRxNAA1C5d7&
+    state=12345&
+    redirect_uri=https://example-app.com/redirect&
+    code_challenge=NSwxtaIgXMcIFi9tNAJcTADuGiCXMDpa602KwfXPzMM&
+    code_challenge_method=S256
+
+curl -X POST https://dev-16630726.okta.com/oauth2/default/v1/token \
+    -d grant_type=authorization_code \
+    -d redirect_uri=https://example-app.com/redirect \
+    -d client_id=0oa3jyzq3yRxNAA1C5d7 \
+    -d code_verifier=edf9c15fca04e6f1c16490af7282c2a9032979c43623cf0afce87df3 \
+    -d code=vIRTfFVjVLrjv1C73eVQl63ofHjpU1FOzfneQ9xPFes
+
+curl -X POST https://dev-16630726.okta.com/oauth2/default/v1/token \
+    -d grant_type=refresh_token \
+    -d client_id=0oa3jyzq3yRxNAA1C5d7 \
+    -d refresh_token=d3bsIkXkpeHxFtz0QhztZwBzXDMzTxne_esz5Mlo4wE
