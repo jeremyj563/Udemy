@@ -1,0 +1,3 @@
+# The Nuts and Bolts of OAuth 2.0
+
+For learning how OAuth works. Okta credentials are hard coded. All applications and authentication servers are deactivated...
