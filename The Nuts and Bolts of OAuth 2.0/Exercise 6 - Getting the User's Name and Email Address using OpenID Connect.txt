@@ -1,0 +1,16 @@
+https://dev-16630726.okta.com/oauth2/default/v1/authorize?
+    response_type=code&
+    scope=openid+profile+email&
+    client_id=0oa3jxtjpqqTksnfO5d7&
+    state=12345&
+    redirect_uri=https://example-app.com/redirect&
+    code_challenge=a7rnOfFjgT8zW_GlGbbRnAfM6DldY7B0Onk9wA4YUM8&
+    code_challenge_method=S256
+
+curl -X POST https://dev-16630726.okta.com/oauth2/default/v1/token \
+    -d grant_type=authorization_code \
+    -d redirect_uri=https://example-app.com/redirect \
+    -d client_id=0oa3jxtjpqqTksnfO5d7 \
+    -d client_secret=8H9Spz5GMJiw_eA-kSmVVZUJiynidMLi1ru-gi_L \
+    -d code_verifier=eb5f7876d5ff17c59abaea47f31a36b88fb5db05f40c6cd361fef3ee \
+    -d code=XFTu-fnBhyW1PpM-Jqs4J6HGeEZXFyelJVC99KkGpE4
