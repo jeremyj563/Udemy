@@ -30,13 +30,21 @@ public class DomainObject
 
 public class Demo
 {
+
+    public delegate DomainObject Factory(int value);
+
+    public static DomainObject CreateDomainObject(int value)
+    {
+        return new DomainObject(new Service(), value);
+    }
+
     public static void Main(string[] args)
     {
-        var cb = new ContainerBuilder();
-        cb.RegisterType<Service>();
-        cb.RegisterType<DomainObject>();
+        var builder = new ContainerBuilder();
+        builder.RegisterType<Service>();
+        builder.RegisterType<DomainObject>();
 
-        var container = cb.Build();
+        var container = builder.Build();
 
         // naive approach to setting a specific parameter at resolution time
         // will break if parameter postion changes
@@ -48,5 +56,20 @@ public class Demo
         var factory = container.Resolve<DomainObject.Factory>();
         domainObject = factory(23); // notice the domainObject still get's the Service injected...
         Console.WriteLine(domainObject.ToString());
+
+        // playing around with delegate options...
+        Factory factoryOuterDelegate = CreateDomainObject;
+        domainObject = factoryOuterDelegate(23);
+
+        Factory factoryLocalDelegate = v => new DomainObject(new Service(), v);
+        domainObject = factoryLocalDelegate(23);
+
+        var factoryInlineDelegate = delegate (int v) { return new DomainObject(new Service(), v); };
+        domainObject = factoryInlineDelegate(23);
+
+        var factoryFunc = (int v) => new DomainObject(new Service(), v);
+        domainObject = factoryFunc(23);
+
+        // should be able to just pass a lambda like ^^^ when calling builder.Resolve();
     }
 }
