@@ -36,6 +36,14 @@
                 "${workspaceFolder}/Dependency Injection in C# and .NET with the Autofac Library/Section 3 - Advanced Registration Concepts/Section 3 - Advanced Registration Concepts.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "kill-terminals",
+            "command": "${command:workbench.action.terminal.killAll}",
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
         }
     ]
 }
