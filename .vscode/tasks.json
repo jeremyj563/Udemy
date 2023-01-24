@@ -42,7 +42,7 @@
             "command": "${command:workbench.action.terminal.killAll}",
             "problemMatcher": [],
             "runOptions": {
-                "runOn": "folderOpen"
+                "runOn": "default"
             }
         }
     ]
