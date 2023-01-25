@@ -51,7 +51,7 @@ public class Demo
         var domainObject = container.Resolve<DomainObject>(new PositionalParameter(1, 42));
         Console.WriteLine(domainObject.ToString());
 
-        // use a delegate factore to set the parameter at resolution time
+        // use a delegate factory to set the parameter at resolution time
         // will *not* break
         var factory = container.Resolve<DomainObject.Factory>();
         domainObject = factory(23); // notice the domainObject still get's the Service injected...
